@@ -13,7 +13,7 @@ export default async function Home() {
   const response = await retrieve();
   const characters = response.Items;
   return (
-    <div className="bg-slate-800 flex flex-col m-10 p-5 border-4 border-black">{characters.map((character) => <Character key={character.CHARACTER_NAME} character={character}/>)}</div>
+    <div className="bg-slate-800 flex flex-col m-10 p-5 border-4 border-black">{(characters as Record<string, string | string[]>[]).map((character) => <Character key={character.CHARACTER_NAME as string} character={character}/>)}</div>
   );
 }
 
